@@ -36,6 +36,10 @@ NSString * kMDCFullScreenDetectorSwitchedToRegularSpace = @"com.whimsicalifornia
   return self;
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Notification handlers
 - (void)activeSpaceDidChange:(NSNotification *)notification {
   [self updateFullScreenStatus];
